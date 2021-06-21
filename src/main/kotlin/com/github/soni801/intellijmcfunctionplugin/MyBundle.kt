@@ -1,4 +1,4 @@
-package org.jetbrains.plugins.template
+package com.github.soni801.intellijmcfunctionplugin
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls

@@ -1,7 +1,7 @@
-package org.jetbrains.plugins.template.services
+package com.github.soni801.intellijmcfunctionplugin.services
 
+import com.github.soni801.intellijmcfunctionplugin.MyBundle
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.template.MyBundle
 
 class MyProjectService(project: Project) {
 
