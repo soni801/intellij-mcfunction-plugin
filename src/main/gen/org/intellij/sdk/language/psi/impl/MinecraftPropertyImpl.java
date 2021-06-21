@@ -1,0 +1,30 @@
+// This is a generated file. Not intended for manual editing.
+package org.intellij.sdk.language.psi.impl;
+
+import java.util.List;
+import org.jetbrains.annotations.*;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static org.intellij.sdk.language.psi.MinecraftTypes.*;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import org.intellij.sdk.language.psi.*;
+
+public class MinecraftPropertyImpl extends ASTWrapperPsiElement implements MinecraftProperty {
+
+  public MinecraftPropertyImpl(@NotNull ASTNode node) {
+    super(node);
+  }
+
+  public void accept(@NotNull MinecraftVisitor visitor) {
+    visitor.visitProperty(this);
+  }
+
+  @Override
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof MinecraftVisitor) accept((MinecraftVisitor)visitor);
+    else super.accept(visitor);
+  }
+
+}

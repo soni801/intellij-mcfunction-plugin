@@ -10,6 +10,10 @@
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.soni801.intellijmcfunctionplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.soni801.intellijmcfunctionplugin.services.MyProjectService"/>
+        <fileType name="Simple File" implementationClass="org.intellij.sdk.language.MinecraftFileType" fieldName="INSTANCE" language="Minecraft" extensions="mcfunction"/>
+        <lang.parserDefinition language="Minecraft" implementationClass="org.intellij.sdk.language.MinecraftParserDefinition"/>
+        <lang.syntaxHighlighterFactory language="Minecraft" implementationClass="org.intellij.sdk.language.MinecraftSyntaxHighlighterFactory"/>
+        <colorSettingsPage implementation="org.intellij.sdk.language.MinecraftColorSettingsPage"/>
     </extensions>
 
     <applicationListeners>
