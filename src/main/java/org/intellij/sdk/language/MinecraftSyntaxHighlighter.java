@@ -18,18 +18,17 @@ import static com.intellij.openapi.editor.colors.TextAttributesKey.createTextAtt
 
 public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
 {
-    public static final TextAttributesKey SEPARATOR = createTextAttributesKey("MINECRAFT_SEPARATOR", DefaultLanguageHighlighterColors.OPERATION_SIGN);
-    public static final TextAttributesKey KEY = createTextAttributesKey("MINECRAFT_KEY", DefaultLanguageHighlighterColors.KEYWORD);
-    public static final TextAttributesKey VALUE = createTextAttributesKey("MINECRAFT_VALUE", DefaultLanguageHighlighterColors.STRING);
+    public static final TextAttributesKey COMMAND = createTextAttributesKey("MINECRAFT_COMMAND", DefaultLanguageHighlighterColors.KEYWORD);
+    public static final TextAttributesKey ARGUMENT = createTextAttributesKey("MINECRAFT_ARGUMENT", DefaultLanguageHighlighterColors.INSTANCE_METHOD);
+    public static final TextAttributesKey SELECTOR = createTextAttributesKey("MINECRAFT_SELECTOR", DefaultLanguageHighlighterColors.INSTANCE_FIELD);
     public static final TextAttributesKey COMMENT = createTextAttributesKey("MINECRAFT_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
     public static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("MINECRAFT_BAD_CHARACTER", HighlighterColors.BAD_CHARACTER);
-    
-    
-    private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
-    private static final TextAttributesKey[] SEPARATOR_KEYS = new TextAttributesKey[]{SEPARATOR};
-    private static final TextAttributesKey[] KEY_KEYS = new TextAttributesKey[]{KEY};
-    private static final TextAttributesKey[] VALUE_KEYS = new TextAttributesKey[]{VALUE};
+
+    private static final TextAttributesKey[] COMMAND_KEYS = new TextAttributesKey[]{COMMAND};
+    private static final TextAttributesKey[] ARGUMENT_KEYS = new TextAttributesKey[]{ARGUMENT};
+    private static final TextAttributesKey[] SELECTOR_KEYS = new TextAttributesKey[]{SELECTOR};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
+    private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
     private static final TextAttributesKey[] EMPTY_KEYS = new TextAttributesKey[0];
     
     @NotNull
@@ -43,29 +42,11 @@ public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
     @Override
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
     {
-        if (tokenType.equals(MinecraftTypes.SEPARATOR))
-        {
-            return SEPARATOR_KEYS;
-        }
-        else if (tokenType.equals(MinecraftTypes.KEY))
-        {
-            return KEY_KEYS;
-        }
-        else if (tokenType.equals(MinecraftTypes.VALUE))
-        {
-            return VALUE_KEYS;
-        }
-        else if (tokenType.equals(MinecraftTypes.COMMENT))
-        {
-            return COMMENT_KEYS;
-        }
-        else if (tokenType.equals(TokenType.BAD_CHARACTER))
-        {
-            return BAD_CHAR_KEYS;
-        }
-        else
-        {
-            return EMPTY_KEYS;
-        }
+        if (tokenType.equals(MinecraftTypes.COMMAND))       return COMMAND_KEYS;
+        else if (tokenType.equals(MinecraftTypes.ARGUMENT)) return ARGUMENT_KEYS;
+        else if (tokenType.equals(MinecraftTypes.SELECTOR)) return SELECTOR_KEYS;
+        else if (tokenType.equals(MinecraftTypes.COMMENT))  return COMMENT_KEYS;
+        else if (tokenType.equals(TokenType.BAD_CHARACTER)) return BAD_CHAR_KEYS;
+        else return EMPTY_KEYS;
     }
 }

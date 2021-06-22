@@ -12,33 +12,22 @@ import com.intellij.psi.TokenType;
 %unicode
 %function advance
 %type IElementType
-%eof{  return;
-%eof}
 
-CRLF=\R
-WHITE_SPACE=[\ \n\t\f]
-FIRST_VALUE_CHARACTER=[^ \n\f\\] | "\\"{CRLF} | "\\".
-VALUE_CHARACTER=[^\n\f\\] | "\\"{CRLF} | "\\".
-END_OF_LINE_COMMENT=("#"|"!")[^\r\n]*
-SEPARATOR=[:=]
-KEY_CHARACTER=[^:=\ \n\t\f\\] | "\\ "
-
-%state WAITING_VALUE
+WHITE_SPACE=[ \t\n\r]+
+END_OF_LINE_COMMENT=("#")[^\r\n]*
+COMMAND=execute|function|test
+ARGUMENT=at|as|run
+SELECTOR=@e|@a|@p|@s
 
 %%
 
-<YYINITIAL> {END_OF_LINE_COMMENT}                           { yybegin(YYINITIAL); return MinecraftTypes.COMMENT; }
+<YYINITIAL>
+{
+    {WHITE_SPACE}         { return TokenType.WHITE_SPACE; }
+    {END_OF_LINE_COMMENT} { return MinecraftTypes.COMMENT; }
+    {COMMAND}             { return MinecraftTypes.COMMAND; }
+    {ARGUMENT}            { return MinecraftTypes.ARGUMENT; }
+    {SELECTOR}            { return MinecraftTypes.SELECTOR; }
+}
 
-<YYINITIAL> {KEY_CHARACTER}+                                { yybegin(YYINITIAL); return MinecraftTypes.KEY; }
-
-<YYINITIAL> {SEPARATOR}                                     { yybegin(WAITING_VALUE); return MinecraftTypes.SEPARATOR; }
-
-<WAITING_VALUE> {CRLF}({CRLF}|{WHITE_SPACE})+               { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-
-<WAITING_VALUE> {WHITE_SPACE}+                              { yybegin(WAITING_VALUE); return TokenType.WHITE_SPACE; }
-
-<WAITING_VALUE> {FIRST_VALUE_CHARACTER}{VALUE_CHARACTER}*   { yybegin(YYINITIAL); return MinecraftTypes.VALUE; }
-
-({CRLF}|{WHITE_SPACE})+                                     { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
-
-[^]                                                         { return TokenType.BAD_CHARACTER; }
+[^] { return TokenType.BAD_CHARACTER; }

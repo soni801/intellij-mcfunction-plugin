@@ -13,8 +13,6 @@
     tokenTypeClass="org.intellij.sdk.language.psi.MinecraftTokenType"
 }
 
-minecraftFile ::= item_*
+minecraftFile ::= item*
 
-private item_ ::= (property|COMMENT|CRLF)
-
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+private item ::= (COMMAND|ARGUMENT|SELECTOR|COMMENT)

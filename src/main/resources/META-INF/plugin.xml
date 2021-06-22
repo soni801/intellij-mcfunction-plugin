@@ -1,23 +1,17 @@
 <idea-plugin>
-    <id>com.github.soni801.intellijmcfunctionplugin</id>
-    <name>intellij-mcfunction-plugin</name>
-    <vendor>soni801</vendor>
+    <id>org.soni</id>
+    <name>Mcfunction</name>
+    <version>1.0</version>
+    <vendor>Soni</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.soni801.intellijmcfunctionplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.soni801.intellijmcfunctionplugin.services.MyProjectService"/>
-        <fileType name="Simple File" implementationClass="org.intellij.sdk.language.MinecraftFileType" fieldName="INSTANCE" language="Minecraft" extensions="mcfunction"/>
+        <fileType name="Minecraft File" implementationClass="org.intellij.sdk.language.MinecraftFileType" fieldName="INSTANCE" language="Minecraft" extensions="mcfunction"/>
         <lang.parserDefinition language="Minecraft" implementationClass="org.intellij.sdk.language.MinecraftParserDefinition"/>
         <lang.syntaxHighlighterFactory language="Minecraft" implementationClass="org.intellij.sdk.language.MinecraftSyntaxHighlighterFactory"/>
         <colorSettingsPage implementation="org.intellij.sdk.language.MinecraftColorSettingsPage"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.soni801.intellijmcfunctionplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>

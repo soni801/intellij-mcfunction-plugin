@@ -7,10 +7,6 @@ import com.intellij.psi.PsiElement;
 
 public class MinecraftVisitor extends PsiElementVisitor {
 
-  public void visitProperty(@NotNull MinecraftProperty o) {
-    visitPsiElement(o);
-  }
-
   public void visitPsiElement(@NotNull PsiElement o) {
     visitElement(o);
   }

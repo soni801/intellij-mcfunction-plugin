@@ -84,6 +84,6 @@ public class MinecraftParserDefinition implements ParserDefinition
     @Override
     public PsiElement createElement(ASTNode node)
     {
-        return MinecraftTypes.Factory.createElement(node);
+        return null;
     }
 }
