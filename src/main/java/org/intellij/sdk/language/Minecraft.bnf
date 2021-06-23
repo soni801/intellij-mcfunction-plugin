@@ -15,4 +15,4 @@
 
 minecraftFile ::= item*
 
-private item ::= (COMMAND|ARGUMENT|SELECTOR|COMMENT)
+private item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|COMMENT)

@@ -36,25 +36,32 @@ class MinecraftLexer implements FlexLexer {
 
   /** 
    * Translates characters to character classes
-   * Chosen bits are [8, 6, 7]
-   * Total runtime size is 1040 bytes
+   * Chosen bits are [9, 6, 6]
+   * Total runtime size is 3488 bytes
    */
   public static int ZZ_CMAP(int ch) {
-    return ZZ_CMAP_A[ZZ_CMAP_Y[ZZ_CMAP_Z[ch>>13]|((ch>>7)&0x3f)]|(ch&0x7f)];
+    return ZZ_CMAP_A[(ZZ_CMAP_Y[(ZZ_CMAP_Z[ch>>12]<<6)|((ch>>6)&0x3f)]<<6)|(ch&0x3f)];
   }
 
-  /* The ZZ_CMAP_Z table has 136 entries */
+  /* The ZZ_CMAP_Z table has 272 entries */
   static final char ZZ_CMAP_Z[] = zzUnpackCMap(
-    "\1\0\207\100");
+    "\1\0\1\1\10\2\1\3\4\2\1\4\1\5\1\6\4\2\1\7\6\2\1\10\1\11\361\2");
 
-  /* The ZZ_CMAP_Y table has 128 entries */
+  /* The ZZ_CMAP_Y table has 640 entries */
   static final char ZZ_CMAP_Y[] = zzUnpackCMap(
-    "\1\0\177\200");
+    "\1\0\1\1\27\2\1\3\1\2\1\4\3\2\1\5\5\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6"+
+    "\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\7\1\2\1\7\1\3\4\2\1\5\1\7\34"+
+    "\2\1\3\1\7\4\2\1\10\1\2\1\7\2\2\1\11\2\2\1\7\1\4\2\2\1\11\146\2\1\3\12\2\1"+
+    "\7\1\5\2\2\1\12\1\2\1\7\5\2\1\4\114\2\1\7\25\2\1\3\56\2\1\6\1\2\1\4\1\13\2"+
+    "\2\1\7\3\2\1\4\5\2\1\7\1\2\1\7\5\2\1\7\1\2\1\5\1\4\6\2\1\3\15\2\1\7\67\2\1"+
+    "\3\3\2\1\7\61\2\1\14\105\2\1\7\32\2");
 
-  /* The ZZ_CMAP_A table has 256 entries */
+  /* The ZZ_CMAP_A table has 832 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\1\1\3\2\0\1\3\22\0\1\1\2\0\1\2\34\0\1\20\40\0\1\16\1\0\1\6\1\0\1\4"+
-    "\1\11\2\0\1\13\4\0\1\12\1\14\1\21\1\0\1\17\1\15\1\10\1\7\2\0\1\5\207\0");
+    "\11\0\1\1\1\3\2\0\1\3\22\0\1\1\2\0\1\2\14\0\12\22\6\0\1\20\40\0\1\16\1\0\1"+
+    "\6\1\0\1\4\1\11\2\0\1\13\4\0\1\12\1\14\1\21\1\0\1\17\1\15\1\10\1\7\2\0\1\5"+
+    "\147\0\12\22\106\0\12\22\6\0\12\22\134\0\12\22\40\0\12\22\54\0\12\22\60\0"+
+    "\12\22\6\0\12\22\66\0\12\22\26\0\12\22\74\0\12\22\16\0\62\22");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -62,11 +69,11 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\6\1\3\0\1\4\1\0"+
-    "\1\5\4\0\1\6\6\0";
+    "\1\0\1\1\1\2\1\3\6\1\1\4\3\0\1\5"+
+    "\1\0\1\6\4\0\1\7\6\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[27];
+    int [] result = new int[28];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -91,13 +98,13 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\22\0\44\0\66\0\110\0\132\0\154\0\176"+
-    "\0\220\0\242\0\264\0\306\0\330\0\22\0\352\0\22"+
-    "\0\374\0\u010e\0\u0120\0\u0132\0\22\0\u0144\0\u0156\0\u0168"+
-    "\0\u017a\0\u018c\0\u019e";
+    "\0\0\0\23\0\46\0\71\0\114\0\137\0\162\0\205"+
+    "\0\230\0\253\0\23\0\276\0\321\0\344\0\23\0\367"+
+    "\0\23\0\u010a\0\u011d\0\u0130\0\u0143\0\23\0\u0156\0\u0169"+
+    "\0\u017c\0\u018f\0\u01a2\0\u01b5";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[27];
+    int [] result = new int[28];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -121,17 +128,17 @@ class MinecraftLexer implements FlexLexer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\3\1\5\3\2\1\6\1\7"+
-    "\4\2\1\10\1\11\1\12\1\2\23\0\1\3\1\0"+
-    "\1\3\16\0\3\4\1\0\16\4\5\0\1\13\20\0"+
-    "\1\14\24\0\1\15\22\0\1\16\4\0\1\16\13\0"+
-    "\1\17\16\0\1\20\10\0\2\20\2\0\1\20\4\0"+
-    "\1\21\32\0\1\22\16\0\1\23\21\0\1\16\15\0"+
-    "\1\24\23\0\1\25\17\0\1\26\22\0\1\27\22\0"+
-    "\1\30\21\0\1\31\24\0\1\32\12\0\1\25\31\0"+
-    "\1\33\17\0\1\25\7\0";
+    "\4\2\1\10\1\11\1\12\1\2\1\13\24\0\1\3"+
+    "\1\0\1\3\17\0\3\4\1\0\17\4\5\0\1\14"+
+    "\21\0\1\15\25\0\1\16\23\0\1\17\4\0\1\17"+
+    "\14\0\1\20\17\0\1\21\10\0\2\21\2\0\1\21"+
+    "\5\0\1\22\33\0\1\23\17\0\1\24\22\0\1\17"+
+    "\16\0\1\25\24\0\1\26\20\0\1\27\23\0\1\30"+
+    "\23\0\1\31\22\0\1\32\25\0\1\33\13\0\1\26"+
+    "\32\0\1\34\20\0\1\26\10\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[432];
+    int [] result = new int[456];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -169,11 +176,11 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\10\1\3\0\1\11\1\0\1\11\4\0"+
-    "\1\11\6\0";
+    "\1\0\1\11\10\1\1\11\3\0\1\11\1\0\1\11"+
+    "\4\0\1\11\6\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[27];
+    int [] result = new int[28];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -477,32 +484,37 @@ class MinecraftLexer implements FlexLexer {
             { return TokenType.BAD_CHARACTER;
             } 
             // fall through
-          case 7: break;
+          case 8: break;
           case 2: 
             { return TokenType.WHITE_SPACE;
             } 
             // fall through
-          case 8: break;
+          case 9: break;
           case 3: 
             { return MinecraftTypes.COMMENT;
             } 
             // fall through
-          case 9: break;
-          case 4: 
-            { return MinecraftTypes.ARGUMENT;
-            } 
-            // fall through
           case 10: break;
-          case 5: 
-            { return MinecraftTypes.SELECTOR;
+          case 4: 
+            { return MinecraftTypes.NUMBER;
             } 
             // fall through
           case 11: break;
-          case 6: 
-            { return MinecraftTypes.COMMAND;
+          case 5: 
+            { return MinecraftTypes.ARGUMENT;
             } 
             // fall through
           case 12: break;
+          case 6: 
+            { return MinecraftTypes.SELECTOR;
+            } 
+            // fall through
+          case 13: break;
+          case 7: 
+            { return MinecraftTypes.COMMAND;
+            } 
+            // fall through
+          case 14: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

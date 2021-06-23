@@ -36,13 +36,14 @@ public class MinecraftParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMAND|ARGUMENT|SELECTOR|COMMENT
+  // COMMAND|ARGUMENT|SELECTOR|NUMBER|COMMENT
   static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
     r = consumeToken(b, COMMAND);
     if (!r) r = consumeToken(b, ARGUMENT);
     if (!r) r = consumeToken(b, SELECTOR);
+    if (!r) r = consumeToken(b, NUMBER);
     if (!r) r = consumeToken(b, COMMENT);
     return r;
   }
