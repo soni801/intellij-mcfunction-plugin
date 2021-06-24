@@ -15,4 +15,8 @@
 
 minecraftFile ::= item*
 
-private item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|COMMENT)
+public item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING|COMMENT) {
+    recoverWhile="recover_item"
+}
+
+private recover_item ::= !(COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING|COMMENT)

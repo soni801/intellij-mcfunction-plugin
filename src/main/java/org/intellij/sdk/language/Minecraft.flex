@@ -12,6 +12,8 @@ import com.intellij.psi.TokenType;
 %unicode
 %function advance
 %type IElementType
+%eof{  return;
+%eof}
 
 WHITE_SPACE=[ \t\n\r]+
 END_OF_LINE_COMMENT=("#")[^\r\n]*
@@ -19,6 +21,7 @@ COMMAND=execute|function|test
 ARGUMENT=at|as|run
 SELECTOR=@e|@a|@p|@s
 NUMBER=\d
+STRING=\"(.*)\"
 
 %%
 
@@ -30,6 +33,7 @@ NUMBER=\d
     {ARGUMENT}            { return MinecraftTypes.ARGUMENT; }
     {SELECTOR}            { return MinecraftTypes.SELECTOR; }
     {NUMBER}              { return MinecraftTypes.NUMBER; }
+    {STRING}              { return MinecraftTypes.STRING; }
 }
 
 [^] { return TokenType.BAD_CHARACTER; }

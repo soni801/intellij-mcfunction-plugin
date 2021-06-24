@@ -37,7 +37,7 @@ class MinecraftLexer implements FlexLexer {
   /** 
    * Translates characters to character classes
    * Chosen bits are [9, 6, 6]
-   * Total runtime size is 3488 bytes
+   * Total runtime size is 3872 bytes
    */
   public static int ZZ_CMAP(int ch) {
     return ZZ_CMAP_A[(ZZ_CMAP_Y[(ZZ_CMAP_Z[ch>>12]<<6)|((ch>>6)&0x3f)]<<6)|(ch&0x3f)];
@@ -45,23 +45,24 @@ class MinecraftLexer implements FlexLexer {
 
   /* The ZZ_CMAP_Z table has 272 entries */
   static final char ZZ_CMAP_Z[] = zzUnpackCMap(
-    "\1\0\1\1\10\2\1\3\4\2\1\4\1\5\1\6\4\2\1\7\6\2\1\10\1\11\361\2");
+    "\1\0\1\1\1\2\7\3\1\4\4\3\1\5\1\6\1\7\4\3\1\10\6\3\1\11\1\12\361\3");
 
-  /* The ZZ_CMAP_Y table has 640 entries */
+  /* The ZZ_CMAP_Y table has 704 entries */
   static final char ZZ_CMAP_Y[] = zzUnpackCMap(
-    "\1\0\1\1\27\2\1\3\1\2\1\4\3\2\1\5\5\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6"+
-    "\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\6\1\2\1\7\1\2\1\7\1\3\4\2\1\5\1\7\34"+
-    "\2\1\3\1\7\4\2\1\10\1\2\1\7\2\2\1\11\2\2\1\7\1\4\2\2\1\11\146\2\1\3\12\2\1"+
-    "\7\1\5\2\2\1\12\1\2\1\7\5\2\1\4\114\2\1\7\25\2\1\3\56\2\1\6\1\2\1\4\1\13\2"+
-    "\2\1\7\3\2\1\4\5\2\1\7\1\2\1\7\5\2\1\7\1\2\1\5\1\4\6\2\1\3\15\2\1\7\67\2\1"+
-    "\3\3\2\1\7\61\2\1\14\105\2\1\7\32\2");
+    "\1\0\1\1\1\2\26\3\1\4\1\3\1\5\3\3\1\6\5\3\1\7\1\3\1\7\1\3\1\7\1\3\1\7\1\3"+
+    "\1\7\1\3\1\7\1\3\1\7\1\3\1\7\1\3\1\7\1\3\1\7\1\3\1\10\1\3\1\10\1\4\4\3\1\6"+
+    "\1\10\34\3\1\4\1\10\4\3\1\11\1\3\1\10\2\3\1\12\2\3\1\10\1\5\2\3\1\12\16\3"+
+    "\1\13\227\3\1\4\12\3\1\10\1\6\2\3\1\14\1\3\1\10\5\3\1\5\114\3\1\10\25\3\1"+
+    "\4\56\3\1\7\1\3\1\5\1\15\2\3\1\10\3\3\1\5\5\3\1\10\1\3\1\10\5\3\1\10\1\3\1"+
+    "\6\1\5\6\3\1\4\15\3\1\10\67\3\1\4\3\3\1\10\61\3\1\16\105\3\1\10\32\3");
 
-  /* The ZZ_CMAP_A table has 832 entries */
+  /* The ZZ_CMAP_A table has 960 entries */
   static final char ZZ_CMAP_A[] = zzUnpackCMap(
-    "\11\0\1\1\1\3\2\0\1\3\22\0\1\1\2\0\1\2\14\0\12\22\6\0\1\20\40\0\1\16\1\0\1"+
-    "\6\1\0\1\4\1\11\2\0\1\13\4\0\1\12\1\14\1\21\1\0\1\17\1\15\1\10\1\7\2\0\1\5"+
-    "\147\0\12\22\106\0\12\22\6\0\12\22\134\0\12\22\40\0\12\22\54\0\12\22\60\0"+
-    "\12\22\6\0\12\22\66\0\12\22\26\0\12\22\74\0\12\22\16\0\62\22");
+    "\11\0\1\1\1\3\2\24\1\3\22\0\1\1\1\0\1\23\1\2\14\0\12\22\6\0\1\20\40\0\1\16"+
+    "\1\0\1\6\1\0\1\4\1\11\2\0\1\13\4\0\1\12\1\14\1\21\1\0\1\17\1\15\1\10\1\7\2"+
+    "\0\1\5\14\0\1\24\232\0\12\22\106\0\12\22\6\0\12\22\134\0\12\22\40\0\12\22"+
+    "\54\0\12\22\60\0\12\22\6\0\12\22\116\0\2\24\46\0\12\22\26\0\12\22\74\0\12"+
+    "\22\16\0\62\22");
 
   /** 
    * Translates DFA states to action switch labels.
@@ -69,11 +70,11 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\1\3\6\1\1\4\3\0\1\5"+
-    "\1\0\1\6\4\0\1\7\6\0";
+    "\1\0\1\1\1\2\1\3\6\1\1\4\1\1\3\0"+
+    "\1\5\1\0\1\6\1\0\1\7\4\0\1\10\6\0";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[28];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -98,13 +99,13 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\23\0\46\0\71\0\114\0\137\0\162\0\205"+
-    "\0\230\0\253\0\23\0\276\0\321\0\344\0\23\0\367"+
-    "\0\23\0\u010a\0\u011d\0\u0130\0\u0143\0\23\0\u0156\0\u0169"+
-    "\0\u017c\0\u018f\0\u01a2\0\u01b5";
+    "\0\0\0\25\0\52\0\77\0\124\0\151\0\176\0\223"+
+    "\0\250\0\275\0\25\0\322\0\347\0\374\0\u0111\0\25"+
+    "\0\u0126\0\25\0\322\0\322\0\u013b\0\u0150\0\u0165\0\u017a"+
+    "\0\25\0\u018f\0\u01a4\0\u01b9\0\u01ce\0\u01e3\0\u01f8";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[28];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -128,17 +129,18 @@ class MinecraftLexer implements FlexLexer {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\3\1\5\3\2\1\6\1\7"+
-    "\4\2\1\10\1\11\1\12\1\2\1\13\24\0\1\3"+
-    "\1\0\1\3\17\0\3\4\1\0\17\4\5\0\1\14"+
-    "\21\0\1\15\25\0\1\16\23\0\1\17\4\0\1\17"+
-    "\14\0\1\20\17\0\1\21\10\0\2\21\2\0\1\21"+
-    "\5\0\1\22\33\0\1\23\17\0\1\24\22\0\1\17"+
-    "\16\0\1\25\24\0\1\26\20\0\1\27\23\0\1\30"+
-    "\23\0\1\31\22\0\1\32\25\0\1\33\13\0\1\26"+
-    "\32\0\1\34\20\0\1\26\10\0";
+    "\4\2\1\10\1\11\1\12\1\2\1\13\1\14\1\2"+
+    "\26\0\1\3\1\0\1\3\21\0\3\4\1\0\21\4"+
+    "\5\0\1\15\23\0\1\16\27\0\1\17\25\0\1\20"+
+    "\4\0\1\20\16\0\1\21\21\0\1\22\10\0\2\22"+
+    "\2\0\1\22\3\0\3\23\1\0\17\23\1\24\5\0"+
+    "\1\25\35\0\1\26\21\0\1\27\24\0\1\20\20\0"+
+    "\1\30\26\0\1\31\22\0\1\32\25\0\1\33\25\0"+
+    "\1\34\24\0\1\35\27\0\1\36\15\0\1\31\34\0"+
+    "\1\37\22\0\1\31\12\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[456];
+    int [] result = new int[525];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -176,11 +178,11 @@ class MinecraftLexer implements FlexLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\10\1\1\11\3\0\1\11\1\0\1\11"+
-    "\4\0\1\11\6\0";
+    "\1\0\1\11\10\1\1\11\1\1\3\0\1\11\1\0"+
+    "\1\11\1\0\1\1\4\0\1\11\6\0";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[28];
+    int [] result = new int[31];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -391,6 +393,18 @@ class MinecraftLexer implements FlexLexer {
 
 
   /**
+   * Contains user EOF-code, which will be executed exactly once,
+   * when the end of file is reached
+   */
+  private void zzDoEOF() {
+    if (!zzEOFDone) {
+      zzEOFDone = true;
+    
+    }
+  }
+
+
+  /**
    * Resumes scanning until the next regular expression is matched,
    * the end of input is encountered or an I/O-Error occurs.
    *
@@ -476,6 +490,7 @@ class MinecraftLexer implements FlexLexer {
 
       if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
         zzAtEOF = true;
+        zzDoEOF();
         return null;
       }
       else {
@@ -484,37 +499,42 @@ class MinecraftLexer implements FlexLexer {
             { return TokenType.BAD_CHARACTER;
             } 
             // fall through
-          case 8: break;
+          case 9: break;
           case 2: 
             { return TokenType.WHITE_SPACE;
             } 
             // fall through
-          case 9: break;
+          case 10: break;
           case 3: 
             { return MinecraftTypes.COMMENT;
             } 
             // fall through
-          case 10: break;
+          case 11: break;
           case 4: 
             { return MinecraftTypes.NUMBER;
             } 
             // fall through
-          case 11: break;
+          case 12: break;
           case 5: 
             { return MinecraftTypes.ARGUMENT;
             } 
             // fall through
-          case 12: break;
+          case 13: break;
           case 6: 
             { return MinecraftTypes.SELECTOR;
             } 
             // fall through
-          case 13: break;
+          case 14: break;
           case 7: 
+            { return MinecraftTypes.STRING;
+            } 
+            // fall through
+          case 15: break;
+          case 8: 
             { return MinecraftTypes.COMMAND;
             } 
             // fall through
-          case 14: break;
+          case 16: break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }

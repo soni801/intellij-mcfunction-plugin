@@ -22,6 +22,7 @@ public class MinecraftColorSettingsPage implements ColorSettingsPage
             new AttributesDescriptor("Argument", MinecraftSyntaxHighlighter.ARGUMENT),
             new AttributesDescriptor("Selector", MinecraftSyntaxHighlighter.SELECTOR),
             new AttributesDescriptor("Number", MinecraftSyntaxHighlighter.NUMBER),
+            new AttributesDescriptor("String", MinecraftSyntaxHighlighter.STRING),
             new AttributesDescriptor("Bad Value", MinecraftSyntaxHighlighter.BAD_CHARACTER)
     };
     
