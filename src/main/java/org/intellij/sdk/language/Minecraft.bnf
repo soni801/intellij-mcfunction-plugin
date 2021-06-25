@@ -13,10 +13,8 @@
     tokenTypeClass="org.intellij.sdk.language.psi.MinecraftTokenType"
 }
 
-minecraftFile ::= item*
+minecraftFile ::= (item|comment)*
 
-public item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING|COMMENT) {
-    recoverWhile="recover_item"
-}
+private comment ::= COMMENT
 
-private recover_item ::= !(COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING|COMMENT)
+item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING)
