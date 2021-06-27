@@ -34,6 +34,5 @@ STRING=\"(.*)\"
     {SELECTOR}            { return MinecraftTypes.SELECTOR; }
     {NUMBER}              { return MinecraftTypes.NUMBER; }
     {STRING}              { return MinecraftTypes.STRING; }
+    [\S]+                 { return TokenType.BAD_CHARACTER;}
 }
-
-[^] { return TokenType.BAD_CHARACTER; }

@@ -44,7 +44,7 @@ public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
     
     @NotNull
     @Override
-    public TextAttributesKey[] getTokenHighlights(IElementType tokenType)
+    public TextAttributesKey @NotNull [] getTokenHighlights(IElementType tokenType)
     {
         if (tokenType.equals(MinecraftTypes.COMMAND))       return COMMAND_KEYS;
         else if (tokenType.equals(MinecraftTypes.ARGUMENT)) return ARGUMENT_KEYS;
