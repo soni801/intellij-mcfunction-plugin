@@ -45,9 +45,10 @@ public class MinecraftColorSettingsPage implements ColorSettingsPage
     @Override
     public String getDemoText()
     {
-        return "# Comment\n" +
+        return "# This is a comment\n" +
                "execute as @a run tellraw @s \"ok\"\n" +
-               "function minecraft:tick";
+               "function minecraft:tick\n" +
+               "tp @e[type=!minecraft:player] 285 73 127";
     }
     
     @Nullable
