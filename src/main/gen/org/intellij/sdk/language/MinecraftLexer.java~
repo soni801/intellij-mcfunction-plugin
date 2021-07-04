@@ -103,9 +103,9 @@ class MinecraftLexer implements FlexLexer {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\26\0\54\0\102\0\130\0\156\0\204\0\232"+
-    "\0\260\0\306\0\334\0\362\0\u0108\0\u011e\0\u0134\0\130"+
-    "\0\u014a\0\130\0\u0160\0\362\0\u0176\0\u018c\0\u01a2\0\u0160"+
-    "\0\u01b8\0\130\0\u01ce\0\u01e4\0\u01fa\0\u0210\0\u0226\0\u023c";
+    "\0\260\0\306\0\130\0\334\0\362\0\u0108\0\u011e\0\130"+
+    "\0\u0134\0\130\0\u014a\0\334\0\u0160\0\u0176\0\u018c\0\u014a"+
+    "\0\u01a2\0\130\0\u01b8\0\u01ce\0\u01e4\0\u01fa\0\u0210\0\u0226";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[32];
@@ -141,8 +141,7 @@ class MinecraftLexer implements FlexLexer {
     "\1\0\4\5\1\20\4\5\1\20\6\5\1\0\1\5"+
     "\2\0\1\5\1\0\3\5\1\21\14\5\1\0\1\5"+
     "\2\0\1\5\1\0\1\22\10\5\2\22\2\5\1\22"+
-    "\2\5\1\0\1\5\2\0\1\5\1\0\16\5\1\13"+
-    "\1\5\1\0\1\5\2\23\1\14\1\0\17\14\1\24"+
+    "\2\5\1\0\1\5\2\23\1\14\1\0\17\14\1\24"+
     "\1\0\1\14\2\0\1\5\1\0\1\25\17\5\1\0"+
     "\1\5\2\0\1\5\1\0\11\5\1\26\6\5\1\0"+
     "\1\5\2\0\1\5\1\0\6\5\1\27\11\5\1\0"+
@@ -160,7 +159,7 @@ class MinecraftLexer implements FlexLexer {
     "\1\0\6\5\1\32\11\5\1\0\1\5";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[594];
+    int [] result = new int[572];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;

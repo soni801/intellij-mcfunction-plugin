@@ -20,7 +20,7 @@ END_OF_LINE_COMMENT=("#")[^\r\n]*
 COMMAND=execute|function|test
 ARGUMENT=at|as|run
 SELECTOR=@e|@a|@p|@s
-NUMBER=\d
+NUMBER=\d+
 STRING=\"(.*)\"
 
 %%
@@ -36,4 +36,4 @@ STRING=\"(.*)\"
     {STRING}              { return MinecraftTypes.STRING; }
 }
 
-[\S]+                 { return TokenType.BAD_CHARACTER;}
+[\S]+ { return TokenType.BAD_CHARACTER;}
