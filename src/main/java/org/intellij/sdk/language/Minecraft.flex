@@ -36,4 +36,4 @@ STRING=\"(.*)\"
     {STRING}              { return MinecraftTypes.STRING; }
 }
 
-[^] { return TokenType.BAD_CHARACTER; }
+[\S]+                 { return TokenType.BAD_CHARACTER;}
