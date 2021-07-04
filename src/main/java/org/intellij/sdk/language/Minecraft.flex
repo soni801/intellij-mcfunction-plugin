@@ -20,7 +20,7 @@ END_OF_LINE_COMMENT=("#")[^\r\n]*
 COMMAND=\?|advancement|attribute|ban|ban-ip|banlist|bossbar|clear|clone|data|datapack|debug|defaultgamemode|deop|difficulty|effect|enchant|execute|experience|fill|forceload|function|gamemode|gamerule|give|help|item|kick|kill|list|locate|locatebiome|loot|me|msg|op|pardon|pardon-ip|particle|perf|playsound|publish|recipe|reload|save-all|save-off|save-on|say|schedule|scoreboard|seed|setblock|setidletimeout|setworldspawn|spawnpoint|spectate|spreadplayers|stop|stopsound|summon|tag|team|teammsg|teleport|tell|tellraw|time|title|tm|tp|trigger|w|weather|whitelist|worldborder|xp
 ARGUMENT=align|anchored|as|at|facing|in|positioned|rotated|store|if|unless|run
 SELECTOR=@e|@a|@p|@s
-NUMBER=\d+
+NUMBER=(\d|\~|-)+
 STRING=\"(.*)\"
 
 %%
