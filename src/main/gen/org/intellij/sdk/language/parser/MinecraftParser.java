@@ -42,7 +42,7 @@ public class MinecraftParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING
+  // COMMAND|ARGUMENT|SELECTOR|OBJECT|NUMBER|STRING
   public static boolean item(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "item")) return false;
     boolean r;
@@ -50,6 +50,7 @@ public class MinecraftParser implements PsiParser, LightPsiParser {
     r = consumeToken(b, COMMAND);
     if (!r) r = consumeToken(b, ARGUMENT);
     if (!r) r = consumeToken(b, SELECTOR);
+    if (!r) r = consumeToken(b, OBJECT);
     if (!r) r = consumeToken(b, NUMBER);
     if (!r) r = consumeToken(b, STRING);
     exit_section_(b, l, m, r, false, null);

@@ -14,6 +14,7 @@ public interface MinecraftTypes {
   IElementType COMMAND = new MinecraftTokenType("COMMAND");
   IElementType COMMENT = new MinecraftTokenType("COMMENT");
   IElementType NUMBER = new MinecraftTokenType("NUMBER");
+  IElementType OBJECT = new MinecraftTokenType("OBJECT");
   IElementType SELECTOR = new MinecraftTokenType("SELECTOR");
   IElementType STRING = new MinecraftTokenType("STRING");
 

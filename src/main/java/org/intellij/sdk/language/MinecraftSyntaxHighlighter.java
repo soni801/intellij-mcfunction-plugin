@@ -21,6 +21,7 @@ public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
     public static final TextAttributesKey COMMAND = createTextAttributesKey("MINECRAFT_COMMAND", DefaultLanguageHighlighterColors.KEYWORD);
     public static final TextAttributesKey ARGUMENT = createTextAttributesKey("MINECRAFT_ARGUMENT", DefaultLanguageHighlighterColors.INSTANCE_METHOD);
     public static final TextAttributesKey SELECTOR = createTextAttributesKey("MINECRAFT_SELECTOR", DefaultLanguageHighlighterColors.INSTANCE_FIELD);
+    public static final TextAttributesKey OBJECT = createTextAttributesKey("MINECRAFT_OBJECT", DefaultLanguageHighlighterColors.METADATA);
     public static final TextAttributesKey NUMBER = createTextAttributesKey("MINECRAFT_NUMBER", DefaultLanguageHighlighterColors.NUMBER);
     public static final TextAttributesKey STRING = createTextAttributesKey("MINECRAFT_STRING", DefaultLanguageHighlighterColors.STRING);
     public static final TextAttributesKey COMMENT = createTextAttributesKey("MINECRAFT_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
@@ -29,6 +30,7 @@ public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
     private static final TextAttributesKey[] COMMAND_KEYS = new TextAttributesKey[]{COMMAND};
     private static final TextAttributesKey[] ARGUMENT_KEYS = new TextAttributesKey[]{ARGUMENT};
     private static final TextAttributesKey[] SELECTOR_KEYS = new TextAttributesKey[]{SELECTOR};
+    private static final TextAttributesKey[] OBJECT_KEYS = new TextAttributesKey[]{OBJECT};
     private static final TextAttributesKey[] NUMBER_KEYS = new TextAttributesKey[]{NUMBER};
     private static final TextAttributesKey[] STRING_KEYS = new TextAttributesKey[]{STRING};
     private static final TextAttributesKey[] COMMENT_KEYS = new TextAttributesKey[]{COMMENT};
@@ -49,6 +51,7 @@ public class MinecraftSyntaxHighlighter extends SyntaxHighlighterBase
         if (tokenType.equals(MinecraftTypes.COMMAND))       return COMMAND_KEYS;
         else if (tokenType.equals(MinecraftTypes.ARGUMENT)) return ARGUMENT_KEYS;
         else if (tokenType.equals(MinecraftTypes.SELECTOR)) return SELECTOR_KEYS;
+        else if (tokenType.equals(MinecraftTypes.OBJECT))   return OBJECT_KEYS;
         else if (tokenType.equals(MinecraftTypes.NUMBER))   return NUMBER_KEYS;
         else if (tokenType.equals(MinecraftTypes.STRING))   return STRING_KEYS;
         else if (tokenType.equals(MinecraftTypes.COMMENT))  return COMMENT_KEYS;

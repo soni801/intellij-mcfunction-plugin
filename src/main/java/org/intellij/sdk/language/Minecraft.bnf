@@ -17,4 +17,4 @@ minecraftFile ::= (item|comment)*
 
 private comment ::= COMMENT
 
-item ::= (COMMAND|ARGUMENT|SELECTOR|NUMBER|STRING)
+item ::= (COMMAND|ARGUMENT|SELECTOR|OBJECT|NUMBER|STRING)
