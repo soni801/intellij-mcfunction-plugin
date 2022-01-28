@@ -1,5 +1,7 @@
 # intellij-mcfunction-plugin
 
+This is not actively maintained; it is a side project I started for fun, but it turned out to be too much work for it to really be worth it for me. Might come back to it in the future.
+
 ![Build](https://github.com/soni801/intellij-mcfunction-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
